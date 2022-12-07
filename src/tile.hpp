@@ -1,8 +1,5 @@
 #pragma once
 
-#include "app.hpp"
-#include "xpmHandler.hpp"
-
 enum TileStatus{
     flagged, revelead, hidden
 };
@@ -18,8 +15,6 @@ enum TileType {
     seven, 
     eight,
     bomb
-
-    
 };
 
 TileType int_to_tile_type(int value){
@@ -74,49 +69,5 @@ struct Tile{
 
         bool is_tile_bomb(){
             return type == TileType::bomb;
-        }
-        
-        void set_xpm_for_tile(application &app, XpmHandler& xpm_handler){
-            if(status == TileStatus::hidden){
-                xpm_handler.set_new_xpm(app.disp, app.win, base_xpm);
-                return;
-            }
-            if(status==TileStatus::flagged){
-                xpm_handler.set_new_xpm(app.disp, app.win, flag_xpm);
-                return;
-            }
-
-            switch (type) {
-                case TileType::zero:
-                    xpm_handler.set_new_xpm(app.disp, app.win, empty_xpm);
-                    break;
-                case TileType::one:
-                    xpm_handler.set_new_xpm(app.disp, app.win, one_xpm);
-                    break;
-                case TileType::two:
-                    xpm_handler.set_new_xpm(app.disp, app.win, two_xpm);
-                    break;
-                case TileType::three:
-                    xpm_handler.set_new_xpm(app.disp, app.win, three_xpm);
-                    break;
-                case TileType::four:
-                    xpm_handler.set_new_xpm(app.disp, app.win, four_xpm);
-                    break;
-                case TileType::five:
-                    xpm_handler.set_new_xpm(app.disp, app.win, five_xpm);
-                    break;
-                case TileType::six:
-                    xpm_handler.set_new_xpm(app.disp, app.win, six_xpm);
-                    break;
-                case TileType::seven:
-                    xpm_handler.set_new_xpm(app.disp, app.win, seven_xpm);
-                    break;
-                case TileType::eight:
-                    xpm_handler.set_new_xpm(app.disp, app.win, eigth_xpm);
-                    break;
-                case TileType::bomb:
-                    xpm_handler.set_new_xpm(app.disp, app.win, bomb_xpm);
-                    break;
-            }
         }
 };

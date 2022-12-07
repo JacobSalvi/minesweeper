@@ -86,12 +86,12 @@ int main(int argc, char const* argv[]){
     GC imageGC = XCreateGC(app.disp, app.win, 0, NULL);
 
     // CONSTs
-    const int height = 16;
-    const int width = 30;
-    const int bombs = 99;
+    const int height = 10;
+    const int width = 5;
+    const int bombs = 5;
     const int tile_size = 30;
 
-    Game game = Game(width, height, bombs);
+    Game game = Game(width, height, bombs, app, screen_num);
     XResizeWindow(app.disp, app.win, width*tile_size, height*tile_size);
     // game.debug();
 
